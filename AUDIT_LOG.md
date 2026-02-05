@@ -356,3 +356,19 @@
   - pnpm format: pass
 - Notes/next steps:
   - Commit formatting-only normalization and provide final Chat Relay summary with verification + commits.
+
+### 2026-02-05 16:40:01 +07:00
+- Milestone: D
+- Summary: Added /about page, added /about nav link, and added two client-safe testimonial excerpts (Ruel + Amita) on Home.
+- Files changed:
+  - src/pages/about.astro
+  - src/components/Nav.astro
+  - src/pages/index.astro
+- Commands executed:
+  - pply_patch src/components/Nav.astro
+  - pply_patch src/pages/index.astro
+  - pply_patch add src/pages/about.astro
+- Verification run:
+  - Deferred to Milestone D/E final verification gate (pnpm install, pnpm format, pnpm lint, pnpm build).
+- Notes/next steps:
+  - Migrate case studies and writing to Astro Content Collections with schema validation and dynamic detail pages.
