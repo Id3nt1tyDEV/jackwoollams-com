@@ -24,11 +24,12 @@ type CaseStudyModule = {
 const caseStudyModules = import.meta.glob<CaseStudyModule>(
   "../pages/case-studies/*.mdx",
   {
-    eager: true
-  }
+    eager: true,
+  },
 );
 
-const getSlugFromPath = (path: string) => path.split("/").at(-1)?.replace(".mdx", "") ?? "";
+const getSlugFromPath = (path: string) =>
+  path.split("/").at(-1)?.replace(".mdx", "") ?? "";
 
 const validateTags = (slug: string, tags: string[]): CaseStudyTag[] => {
   if (tags.length < 2 || tags.length > 4) {
@@ -52,9 +53,10 @@ export const getCaseStudies = (): CaseStudyItem[] =>
         ...module.frontmatter,
         tags: validateTags(slug, module.frontmatter.tags),
         slug,
-        href: `/case-studies/${slug}/`
+        href: `/case-studies/${slug}/`,
       };
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-export const getRecentCaseStudies = (count = 3): CaseStudyItem[] => getCaseStudies().slice(0, count);
+export const getRecentCaseStudies = (count = 3): CaseStudyItem[] =>
+  getCaseStudies().slice(0, count);

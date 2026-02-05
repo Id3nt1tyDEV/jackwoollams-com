@@ -6,11 +6,12 @@ export const CASE_STUDY_TAGS = [
   "Data Quality",
   "Executive Reporting",
   "Scenario Modelling",
-  "Provider Calibration"
+  "Provider Calibration",
 ] as const;
 
 export type CaseStudyTag = (typeof CASE_STUDY_TAGS)[number];
 
 export const CASE_STUDY_TAG_SET = new Set<string>(CASE_STUDY_TAGS);
 
-export const toTagValue = (tag: string): string => tag.toLowerCase().replace(/\s+/g, "-");
+export const toTagValue = (tag: string): string =>
+  tag.toLowerCase().replace(/\s+/g, "-");

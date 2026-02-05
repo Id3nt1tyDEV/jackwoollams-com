@@ -14,11 +14,15 @@ type WritingModule = {
   frontmatter: WritingFrontmatter;
 };
 
-const writingModules = import.meta.glob<WritingModule>("../pages/writing/*.mdx", {
-  eager: true
-});
+const writingModules = import.meta.glob<WritingModule>(
+  "../pages/writing/*.mdx",
+  {
+    eager: true,
+  },
+);
 
-const getSlugFromPath = (path: string) => path.split("/").at(-1)?.replace(".mdx", "") ?? "";
+const getSlugFromPath = (path: string) =>
+  path.split("/").at(-1)?.replace(".mdx", "") ?? "";
 
 export const getWritingPosts = (): WritingItem[] =>
   Object.entries(writingModules)
@@ -27,7 +31,7 @@ export const getWritingPosts = (): WritingItem[] =>
       return {
         ...module.frontmatter,
         slug,
-        href: `/writing/${slug}/`
+        href: `/writing/${slug}/`,
       };
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());

@@ -13,7 +13,7 @@ const { href, title, summary, date, tags } = Astro.props;
 const formattedDate = new Date(date).toLocaleDateString("en-AU", {
   day: "2-digit",
   month: "short",
-  year: "numeric"
+  year: "numeric",
 });
 ---
 

@@ -5,7 +5,7 @@ const links = [
   { href: "/work", label: "Work" },
   { href: "/case-studies", label: "Case Studies" },
   { href: "/writing", label: "Writing" },
-  { href: "/contact", label: "Contact" }
+  { href: "/contact", label: "Contact" },
 ];
 
 const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
@@ -21,7 +21,10 @@ const isActive = (href: string) => {
     <nav class="nav-links" aria-label="Main navigation">
       {
         links.map((link) => (
-          <a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>
+          <a
+            href={link.href}
+            aria-current={isActive(link.href) ? "page" : undefined}
+          >
             {link.label}
           </a>
         ))

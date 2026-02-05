@@ -223,8 +223,9 @@
   - Run required verification commands (pnpm install, pnpm format, pnpm lint, pnpm build) and log results.
 
 ### 2026-02-05 14:22:53 +07:00
+
 - Milestone: B
-- Summary: Completed required verification gates and installed @astrojs/check + 	ypescript so lint uses stro check successfully.
+- Summary: Completed required verification gates and installed @astrojs/check + ypescript so lint uses stro check successfully.
 - Files changed:
   - package.json
   - pnpm-lock.yaml
@@ -239,6 +240,7 @@
   - Finalize atomic commits for Milestone B and provide tree + review notes.
 
 ### 2026-02-05 14:34:01 +07:00
+
 - Milestone: C
 - Summary: Tightened Home and Services copy for client-safe claims, switched Home CTA priority to Email Jack, added 4-step engagement flow, and added focus-visible/accessibility styling.
 - Files changed:
@@ -255,6 +257,7 @@
   - Enforce controlled case-study taxonomy and align filter UI/frontmatter.
 
 ### 2026-02-05 14:36:06 +07:00
+
 - Milestone: C
 - Summary: Enforced controlled case-study taxonomy in one source, validated tags in data loading, and updated case studies/filter UI to use only approved tags.
 - Files changed:
@@ -276,6 +279,7 @@
   - Add Writing section routes/MDX stubs and include Writing in global navigation.
 
 ### 2026-02-05 14:37:05 +07:00
+
 - Milestone: C
 - Summary: Added Writing section with dynamic listing, three MDX stubs, reusable WritingCard component, and global nav link to /writing.
 - Files changed:
@@ -291,13 +295,14 @@
   - WriteAllText src/components/WritingCard.astro
   - WriteAllText src/data/writing.ts
   - WriteAllText src/pages/writing/index.astro
-  - WriteAllText src/pages/writing/*.mdx
+  - WriteAllText src/pages/writing/\*.mdx
 - Verification run:
   - Deferred to final Milestone C verification gate (pnpm format, pnpm lint, pnpm build).
 - Notes/next steps:
   - Final SEO hardening review for canonical/OG defaults and robots production indexing settings.
 
 ### 2026-02-05 14:38:01 +07:00
+
 - Milestone: C
 - Summary: Hardened SEO defaults by ensuring canonical/OG URL resolution is production-site based and updated robots.txt sitemap target for production indexing.
 - Files changed:
@@ -310,3 +315,44 @@
   - Deferred to final Milestone C verification gate (pnpm format, pnpm lint, pnpm build).
 - Notes/next steps:
   - Run full formatting/lint/build checks and record final verification results.
+
+### 2026-02-05 14:39:01 +07:00
+- Milestone: C
+- Summary: Completed Milestone C verification gates after content, taxonomy, writing, and SEO updates.
+- Files changed:
+  - AUDIT_LOG.md
+- Commands executed:
+  - pnpm format (pass)
+  - pnpm lint (pass; astro check reported 0 errors, 0 warnings)
+  - pnpm build (pass; 13 pages built)
+- Verification run:
+  - pnpm format: pass
+  - pnpm lint: pass
+  - pnpm build: pass
+- Notes/next steps:
+  - Commit final audit updates and share Milestone C Chat Relay summary.
+
+### 2026-02-05 14:39:46 +07:00
+- Milestone: C
+- Summary: Applied Prettier normalization after Milestone C updates to keep formatting consistent across new/updated page, data, and component files.
+- Files changed:
+  - src/components/Nav.astro
+  - src/components/WritingCard.astro
+  - src/data/caseStudies.ts
+  - src/data/taxonomy.ts
+  - src/data/writing.ts
+  - src/layouts/BaseLayout.astro
+  - src/pages/case-studies/index.astro
+  - src/pages/index.astro
+  - src/pages/services.astro
+  - src/pages/writing/index.astro
+  - src/pages/writing/kpi-governance-under-delivery-pressure.mdx
+  - src/pages/writing/making-reporting-automation-auditable.mdx
+  - src/pages/writing/when-contact-centre-metrics-disagree.mdx
+  - AUDIT_LOG.md
+- Commands executed:
+  - pnpm format
+- Verification run:
+  - pnpm format: pass
+- Notes/next steps:
+  - Commit formatting-only normalization and provide final Chat Relay summary with verification + commits.
