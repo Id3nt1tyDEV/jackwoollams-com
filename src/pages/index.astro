@@ -1,17 +1,104 @@
+﻿---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const caseStudies = [
+  {
+    href: "/case-studies/contact-centre-kpi-governance-reliability-controls",
+    title: "Contact Centre KPI Governance & Reliability Controls",
+  },
+  {
+    href: "/case-studies/workforce-insights-time-in-motion-staffing-models",
+    title: "Workforce Insights: Time-in-Motion and Staffing Models",
+  },
+  {
+    href: "/case-studies/automation-uplift-reducing-manual-reporting",
+    title: "Automation Uplift: Reducing Manual Reporting by 30+ Hours/Week",
+  },
+  {
+    href: "/case-studies/cross-provider-calibration-consistency-scale",
+    title: "Cross-Provider Calibration: Improving Consistency at Scale",
+  },
+];
 ---
 
----
+<BaseLayout
+  title="Jack Woollams | Analytics Consultant"
+  description="AI-enabled analytics and contact centre reporting consulting by Jack Woollams."
+>
+  <section>
+    <h1>
+      Rapid ramp-up, durable analytics systems, and reporting that teams trust.
+    </h1>
+    <p class="lead">
+      I help teams stabilize performance data quickly, then build practical
+      analytics foundations that keep working long after handover.
+    </p>
+    <p class="lead">
+      My focus spans AI-adjacent workflows, contact centre analytics, and
+      reporting programs that can scale without losing credibility.
+    </p>
+  </section>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+  <section class="section">
+    <h2>What I do</h2>
+    <ul>
+      <li>
+        Design KPI frameworks with governance, QA controls, and clear ownership.
+      </li>
+      <li>
+        Build reliable reporting layers for leadership, operations, and
+        workforce planning.
+      </li>
+      <li>
+        Improve analyst productivity through automation and reusable data
+        products.
+      </li>
+      <li>
+        Support AI-related analytics adoption with pragmatic process and
+        measurement design.
+      </li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Selected work</h2>
+    <div class="grid cards">
+      {
+        caseStudies.map((item) => (
+          <article class="card">
+            <h3>{item.title}</h3>
+            <p class="muted">
+              Stub case study. Detailed outcomes, constraints, and approach to
+              be added.
+            </p>
+            <a href={item.href}>Read case study</a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Focus areas now</h2>
+    <p class="muted">
+      Governance-first KPI design, cross-provider calibration, and reporting
+      operating models that remain maintainable as complexity grows.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Links</h2>
+    <p>
+      <a
+        href="https://www.linkedin.com/in/jackwoollams/"
+        target="_blank"
+        rel="noreferrer">LinkedIn</a
+      >
+      · <a
+        href="https://github.com/Id3nt1tyDEV"
+        target="_blank"
+        rel="noreferrer">GitHub</a
+      >
+    </p>
+  </section>
+</BaseLayout>

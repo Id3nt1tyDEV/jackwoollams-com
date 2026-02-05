@@ -1,0 +1,43 @@
+﻿---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const items = [
+  {
+    href: "/case-studies/contact-centre-kpi-governance-reliability-controls",
+    title: "Contact Centre KPI Governance & Reliability Controls",
+  },
+  {
+    href: "/case-studies/workforce-insights-time-in-motion-staffing-models",
+    title: "Workforce Insights: Time-in-Motion and Staffing Models",
+  },
+  {
+    href: "/case-studies/automation-uplift-reducing-manual-reporting",
+    title: "Automation Uplift: Reducing Manual Reporting by 30+ Hours/Week",
+  },
+  {
+    href: "/case-studies/cross-provider-calibration-consistency-scale",
+    title: "Cross-Provider Calibration: Improving Consistency at Scale",
+  },
+];
+---
+
+<BaseLayout
+  title="Case Studies | Jack Woollams"
+  description="Selected consulting case studies and delivery notes."
+>
+  <h1>Case Studies</h1>
+  <p class="lead">
+    Initial stubs are live. Each page includes TODO notes for full publication.
+  </p>
+  <div class="grid cards section">
+    {
+      items.map((item) => (
+        <article class="card">
+          <h2>{item.title}</h2>
+          <p class="muted">Placeholder summary pending full write-up.</p>
+          <a href={item.href}>Open stub</a>
+        </article>
+      ))
+    }
+  </div>
+</BaseLayout>
