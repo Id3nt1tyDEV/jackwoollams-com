@@ -419,3 +419,30 @@
   - Deferred to Milestone D/E final verification gate (pnpm install, pnpm format, pnpm lint, pnpm build).
 - Notes/next steps:
   - Implement Milestone E deployment hardening (sitemap, rss, cloudflare headers/redirects, deployment docs).
+
+### 2026-02-05 16:47:33 +07:00
+- Milestone: E
+- Summary: Added sitemap + RSS support with SITE_URL-driven site config, enabled optional Cloudflare analytics token handling, and added Cloudflare deployment artifacts/docs.
+- Files changed:
+  - stro.config.mjs
+  - src/layouts/BaseLayout.astro
+  - src/pages/rss.xml.ts
+  - public/_headers
+  - public/_redirects
+  - README.md
+  - DEPLOYMENT.md
+  - package.json
+  - pnpm-lock.yaml
+- Commands executed:
+  - pnpm add @astrojs/sitemap @astrojs/rss
+  - pply_patch astro.config.mjs
+  - pply_patch src/layouts/BaseLayout.astro
+  - pply_patch add src/pages/rss.xml.ts
+  - WriteAllText public/_headers
+  - WriteAllText public/_redirects
+  - WriteAllText README.md
+  - WriteAllText DEPLOYMENT.md
+- Verification run:
+  - Deferred to Milestone D/E final verification gate (pnpm install, pnpm format, pnpm lint, pnpm build).
+- Notes/next steps:
+  - Run full verification and confirm sitemap + rss files in dist output.
