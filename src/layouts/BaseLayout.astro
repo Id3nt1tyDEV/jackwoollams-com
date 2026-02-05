@@ -1,14 +1,28 @@
-﻿---
+---
 import "../styles/global.css";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 
 interface Props {
-  title: string;
+  pageTitle?: string;
+  title?: string;
   description?: string;
+  canonicalPath?: string;
+  ogType?: "website" | "article";
 }
 
-const { title, description = "Jack Woollams portfolio" } = Astro.props;
+const {
+  pageTitle,
+  title,
+  description = "Consulting services across AI-related analytics, contact centre performance, and reporting systems.",
+  canonicalPath = Astro.url.pathname,
+  ogType = "website"
+} = Astro.props;
+
+const resolvedPageTitle = pageTitle ?? title ?? "Home";
+const fullTitle = `${resolvedPageTitle} | Jack Woollams`;
+const siteUrl = "https://jackwoollams.com";
+const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
 ---
 
 <!doctype html>
@@ -17,9 +31,21 @@ const { title, description = "Jack Woollams portfolio" } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <title>{title}</title>
+
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Jack Woollams" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+
+    <title>{fullTitle}</title>
   </head>
   <body>
     <Nav />

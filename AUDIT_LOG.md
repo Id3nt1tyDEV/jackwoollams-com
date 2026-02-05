@@ -159,3 +159,19 @@
   - `cmd /c "del /q dev.out.log dev.err.log"`
 - Notes/next steps:
   - Commit Milestone A changes and share tree + Cloudflare Pages build draft + Chat Relay summary.
+
+### 2026-02-05 14:15:15 +07:00
+- Milestone: B
+- Summary: Refined design tokens with deep navy accent, added active nav state (including Services), upgraded BaseLayout metadata/canonical support, and added robots.txt.
+- Files changed:
+  - src/styles/global.css
+  - src/components/Nav.astro
+  - src/layouts/BaseLayout.astro
+  - public/robots.txt
+- Commands executed:
+  - WriteAllText src/styles/global.css
+  - WriteAllText src/components/Nav.astro
+  - WriteAllText src/layouts/BaseLayout.astro
+  - WriteAllText public/robots.txt
+- Notes/next steps:
+  - Build reusable case study/service components and update pages/frontmatter to dynamic data-driven rendering.
