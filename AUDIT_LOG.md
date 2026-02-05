@@ -253,3 +253,24 @@
   - Deferred to final Milestone C verification gate (pnpm format, pnpm lint, pnpm build).
 - Notes/next steps:
   - Enforce controlled case-study taxonomy and align filter UI/frontmatter.
+
+### 2026-02-05 14:36:06 +07:00
+- Milestone: C
+- Summary: Enforced controlled case-study taxonomy in one source, validated tags in data loading, and updated case studies/filter UI to use only approved tags.
+- Files changed:
+  - src/data/taxonomy.ts
+  - src/data/caseStudies.ts
+  - src/pages/case-studies/index.astro
+  - src/pages/case-studies/contact-centre-kpi-governance-reliability-controls.mdx
+  - src/pages/case-studies/workforce-insights-time-in-motion-staffing-models.mdx
+  - src/pages/case-studies/automation-uplift-reducing-manual-reporting.mdx
+  - src/pages/case-studies/cross-provider-calibration-consistency-scale.mdx
+- Commands executed:
+  - pply_patch add src/data/taxonomy.ts
+  - WriteAllText src/data/caseStudies.ts
+  - WriteAllText src/pages/case-studies/index.astro
+  - pply_patch update case-study tag fields
+- Verification run:
+  - Deferred to final Milestone C verification gate (pnpm format, pnpm lint, pnpm build).
+- Notes/next steps:
+  - Add Writing section routes/MDX stubs and include Writing in global navigation.

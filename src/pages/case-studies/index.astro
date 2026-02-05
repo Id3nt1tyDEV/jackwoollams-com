@@ -3,31 +3,21 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import CaseStudyCard from "../../components/CaseStudyCard.astro";
 import TagPill from "../../components/TagPill.astro";
 import { getCaseStudies } from "../../data/caseStudies";
+import { CASE_STUDY_TAGS, toTagValue } from "../../data/taxonomy";
 
 const caseStudies = getCaseStudies();
-const tags = [...new Set(caseStudies.flatMap((item) => item.tags))].sort(
-  (a, b) => a.localeCompare(b),
-);
+const tagsInUse = CASE_STUDY_TAGS.filter((tag) => caseStudies.some((item) => item.tags.includes(tag)));
 ---
 
-<BaseLayout
-  pageTitle="Case Studies"
-  description="Outcome-focused examples from analytics consulting delivery."
->
+<BaseLayout pageTitle="Case Studies" description="Outcome-focused examples from analytics consulting delivery.">
   <h1>Case Studies</h1>
-  <p class="lead">
-    Filter by topic to scan outcomes, approach, and delivery context.
-  </p>
+  <p class="lead">Filter by a controlled topic taxonomy to scan outcomes, approach, and delivery context.</p>
 
-  <div
-    class="tag-pills filter-row"
-    role="toolbar"
-    aria-label="Filter case studies by tag"
-  >
+  <div class="tag-pills filter-row" role="toolbar" aria-label="Filter case studies by tag">
     <TagPill label="All" value="all" asButton active />
     {
-      tags.map((tag) => (
-        <TagPill label={tag} value={tag.toLowerCase()} asButton />
+      tagsInUse.map((tag) => (
+        <TagPill label={tag} value={toTagValue(tag)} asButton />
       ))
     }
   </div>
@@ -35,10 +25,7 @@ const tags = [...new Set(caseStudies.flatMap((item) => item.tags))].sort(
   <div id="case-study-grid" class="grid cards section">
     {
       caseStudies.map((item) => (
-        <div
-          data-case-study
-          data-tags={item.tags.map((tag) => tag.toLowerCase()).join("|")}
-        >
+        <div data-case-study data-tags={item.tags.map((tag) => toTagValue(tag)).join("|")}>
           <CaseStudyCard {...item} />
         </div>
       ))
@@ -63,9 +50,7 @@ const tags = [...new Set(caseStudies.flatMap((item) => item.tags))].sort(
     };
 
     buttons.forEach((button) => {
-      button.addEventListener("click", () =>
-        setFilter(button.dataset.tag ?? "all"),
-      );
+      button.addEventListener("click", () => setFilter(button.dataset.tag ?? "all"));
     });
   </script>
 </BaseLayout>
