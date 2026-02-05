@@ -237,3 +237,19 @@
   - pnpm build (pass, 9 pages built)
 - Notes/next steps:
   - Finalize atomic commits for Milestone B and provide tree + review notes.
+
+### 2026-02-05 14:34:01 +07:00
+- Milestone: C
+- Summary: Tightened Home and Services copy for client-safe claims, switched Home CTA priority to Email Jack, added 4-step engagement flow, and added focus-visible/accessibility styling.
+- Files changed:
+  - src/pages/index.astro
+  - src/pages/services.astro
+  - src/styles/global.css
+- Commands executed:
+  - pply_patch src/styles/global.css
+  - WriteAllText src/pages/index.astro
+  - WriteAllText src/pages/services.astro
+- Verification run:
+  - Deferred to final Milestone C verification gate (pnpm format, pnpm lint, pnpm build).
+- Notes/next steps:
+  - Enforce controlled case-study taxonomy and align filter UI/frontmatter.

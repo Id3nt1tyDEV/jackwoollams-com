@@ -5,44 +5,40 @@ import ServiceCard from "../components/ServiceCard.astro";
 const services = [
   {
     title: "KPI Governance and Measurement Reliability",
-    summary:
-      "Establish robust definitions, ownership, and validation controls so leadership can trust every reported metric.",
+    summary: "Define metrics, ownership, and assurance checks so reporting remains decision-grade under scrutiny.",
     bullets: [
       "KPI dictionary and governance model",
-      "Data quality controls and exception pathways",
-      "Operational and executive reporting alignment",
-    ],
+      "Data quality and exception controls",
+      "Operational and executive alignment"
+    ]
   },
   {
     title: "Contact Centre and Workforce Analytics",
-    summary:
-      "Translate operational data into decision support for staffing, performance, and service-level outcomes.",
+    summary: "Translate operational data into practical choices on staffing, performance, and service priorities.",
     bullets: [
-      "Time-in-motion and throughput diagnostics",
-      "Capacity and performance scenario modelling",
-      "Provider and team calibration support",
-    ],
+      "Throughput and effort diagnostics",
+      "Capacity and scenario modelling",
+      "Provider and team calibration support"
+    ]
   },
   {
     title: "Reporting Automation and BAU Uplift",
-    summary:
-      "Reduce manual report cycles while preserving auditability and confidence in final outputs.",
+    summary: "Reduce recurring manual effort while preserving auditability and confidence in final outputs.",
     bullets: [
       "Pipeline and template automation",
-      "Validation checkpoints before publication",
-      "Handover documentation for sustainable run-state",
-    ],
+      "Validation checkpoints before release",
+      "Run-state handover documentation"
+    ]
   },
   {
     title: "Executive Insight and Briefing Support",
-    summary:
-      "Package complex analytics into concise, decision-ready narratives for senior stakeholders.",
+    summary: "Turn complex analytics findings into concise, risk-aware decisions for senior stakeholders.",
     bullets: [
       "Issue framing and options analysis",
-      "Risk-aware metrics interpretation",
-      "Briefing-ready visual and written outputs",
-    ],
-  },
+      "Confidence and risk articulation",
+      "Briefing-ready visual and written outputs"
+    ]
+  }
 ];
 ---
 
@@ -52,8 +48,7 @@ const services = [
 >
   <h1>Services</h1>
   <p class="lead">
-    I work with teams that need fast stabilization now and durable analytics
-    capability over time.
+    Engagements are structured for quick stabilization first, then durable operating capability.
   </p>
 
   <section class="section">
@@ -65,34 +60,45 @@ const services = [
 
   <section class="section">
     <h2>How engagements work</h2>
+    <div class="flow-grid" role="list" aria-label="Engagement flow">
+      <div class="flow-step" role="listitem">
+        <strong>1. Discover</strong>
+        Clarify decisions, stakeholders, constraints, and current-state delivery risk.
+      </div>
+      <div class="flow-step" role="listitem">
+        <strong>2. Diagnose</strong>
+        Establish root causes in data quality, process design, and reporting architecture.
+      </div>
+      <div class="flow-step" role="listitem">
+        <strong>3. Deliver</strong>
+        Implement targeted changes, governance controls, and reporting uplift priorities.
+      </div>
+      <div class="flow-step" role="listitem">
+        <strong>4. Embed</strong>
+        Handover operating artefacts so improvements remain stable after delivery.
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Typical deliverables</h2>
     <ul>
-      <li>
-        Rapid discovery to surface reliability risks, delivery constraints, and
-        decision priorities.
-      </li>
-      <li>
-        Focused implementation sprint with clear milestones and transparent
-        tradeoffs.
-      </li>
-      <li>
-        Structured handover with governance artefacts and run-state
-        documentation.
-      </li>
+      <li>KPI framework and governance documentation.</li>
+      <li>Executive and operational reporting packs.</li>
+      <li>Automation blueprint with validation controls.</li>
+      <li>Implementation notes and run-state handover checklist.</li>
     </ul>
   </section>
 
   <section class="section">
-    <h2>What you get</h2>
+    <h2>Working style</h2>
     <ul>
-      <li>Decision-grade reporting outputs leaders can rely on.</li>
-      <li>Repeatable processes for ongoing quality and consistency.</li>
-      <li>Practical uplift in analyst productivity and delivery confidence.</li>
+      <li>Short feedback loops and transparent trade-offs.</li>
+      <li>Evidence-led recommendations with explicit assumptions.</li>
+      <li>Pragmatic scope control to protect delivery quality.</li>
     </ul>
     <div class="button-group">
-      <a class="button" href="/case-studies">See delivery examples</a>
-      <a class="button button-secondary" href="mailto:jackwoollams1@gmail.com"
-        >Discuss your context</a
-      >
+      <a class="button" href="mailto:jackwoollams1@gmail.com">Email Jack</a>
     </div>
   </section>
 </BaseLayout>
