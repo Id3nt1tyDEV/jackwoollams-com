@@ -296,3 +296,17 @@
   - Deferred to final Milestone C verification gate (pnpm format, pnpm lint, pnpm build).
 - Notes/next steps:
   - Final SEO hardening review for canonical/OG defaults and robots production indexing settings.
+
+### 2026-02-05 14:38:01 +07:00
+- Milestone: C
+- Summary: Hardened SEO defaults by ensuring canonical/OG URL resolution is production-site based and updated robots.txt sitemap target for production indexing.
+- Files changed:
+  - src/layouts/BaseLayout.astro
+  - public/robots.txt
+- Commands executed:
+  - pply_patch src/layouts/BaseLayout.astro
+  - pply_patch public/robots.txt
+- Verification run:
+  - Deferred to final Milestone C verification gate (pnpm format, pnpm lint, pnpm build).
+- Notes/next steps:
+  - Run full formatting/lint/build checks and record final verification results.
