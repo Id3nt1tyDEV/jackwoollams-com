@@ -1,0 +1,29 @@
+---
+import TagPill from "./TagPill.astro";
+
+interface Props {
+  href: string;
+  title: string;
+  summary: string;
+  date: string;
+  tags: string[];
+}
+
+const { href, title, summary, date, tags } = Astro.props;
+const formattedDate = new Date(date).toLocaleDateString("en-AU", {
+  day: "2-digit",
+  month: "short",
+  year: "numeric"
+});
+---
+
+<article class="card">
+  <p class="eyebrow">{formattedDate}</p>
+  <h3>
+    <a href={href}>{title}</a>
+  </h3>
+  <p>{summary}</p>
+  <div class="tag-pills">
+    {tags.map((tag) => <TagPill label={tag} />)}
+  </div>
+</article>

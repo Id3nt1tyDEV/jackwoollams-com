@@ -274,3 +274,25 @@
   - Deferred to final Milestone C verification gate (pnpm format, pnpm lint, pnpm build).
 - Notes/next steps:
   - Add Writing section routes/MDX stubs and include Writing in global navigation.
+
+### 2026-02-05 14:37:05 +07:00
+- Milestone: C
+- Summary: Added Writing section with dynamic listing, three MDX stubs, reusable WritingCard component, and global nav link to /writing.
+- Files changed:
+  - src/components/Nav.astro
+  - src/components/WritingCard.astro
+  - src/data/writing.ts
+  - src/pages/writing/index.astro
+  - src/pages/writing/kpi-governance-under-delivery-pressure.mdx
+  - src/pages/writing/making-reporting-automation-auditable.mdx
+  - src/pages/writing/when-contact-centre-metrics-disagree.mdx
+- Commands executed:
+  - WriteAllText src/components/Nav.astro
+  - WriteAllText src/components/WritingCard.astro
+  - WriteAllText src/data/writing.ts
+  - WriteAllText src/pages/writing/index.astro
+  - WriteAllText src/pages/writing/*.mdx
+- Verification run:
+  - Deferred to final Milestone C verification gate (pnpm format, pnpm lint, pnpm build).
+- Notes/next steps:
+  - Final SEO hardening review for canonical/OG defaults and robots production indexing settings.
