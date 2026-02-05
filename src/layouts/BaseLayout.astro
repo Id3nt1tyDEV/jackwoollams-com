@@ -7,7 +7,6 @@ interface Props {
   pageTitle?: string;
   title?: string;
   description?: string;
-  siteUrl?: string;
   canonicalPath?: string;
   ogType?: "website" | "article";
 }
@@ -16,13 +15,13 @@ const {
   pageTitle,
   title,
   description = "Consulting services across AI-related analytics, contact centre performance, and reporting systems.",
-  siteUrl = "https://jackwoollams.com",
   canonicalPath = Astro.url.pathname,
-  ogType = "website",
+  ogType = "website"
 } = Astro.props;
 
 const resolvedPageTitle = pageTitle ?? title ?? "Home";
 const fullTitle = `${resolvedPageTitle} | Jack Woollams`;
+const siteUrl = Astro.site?.toString() ?? "https://jackwoollams.com";
 const canonicalUrl = canonicalPath.startsWith("http")
   ? canonicalPath
   : new URL(canonicalPath, siteUrl).toString();
@@ -57,5 +56,14 @@ const canonicalUrl = canonicalPath.startsWith("http")
       <slot />
     </main>
     <Footer />
+    {
+      import.meta.env.PUBLIC_CF_ANALYTICS_TOKEN && (
+        <script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={`{"token":"${import.meta.env.PUBLIC_CF_ANALYTICS_TOKEN}"}`}
+        />
+      )
+    }
   </body>
 </html>

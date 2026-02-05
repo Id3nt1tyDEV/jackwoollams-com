@@ -2,14 +2,16 @@
 import { defineConfig } from "astro/config";
 
 import tailwindcss from "@tailwindcss/vite";
-
 import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
+
+const site = process.env.SITE_URL || "https://jackwoollams.com";
 
 // https://astro.build/config
 export default defineConfig({
+  site,
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss()]
   },
-
-  integrations: [mdx()],
+  integrations: [mdx(), sitemap()]
 });
