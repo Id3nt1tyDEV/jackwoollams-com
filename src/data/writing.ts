@@ -12,11 +12,14 @@ const mapEntry = (entry: CollectionEntry<"writing">): WritingItem => ({
   ...entry.data,
   date: entry.data.date.toISOString(),
   slug: entry.slug,
-  href: `/writing/${entry.slug}/`
+  href: `/writing/${entry.slug}/`,
 });
 
 export const getWritingPosts = async (): Promise<WritingItem[]> => {
-  const entries = await getCollection("writing", ({ data }) => data.published !== false);
+  const entries = await getCollection(
+    "writing",
+    ({ data }) => data.published !== false,
+  );
 
   return entries
     .map(mapEntry)

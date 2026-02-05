@@ -317,6 +317,7 @@
   - Run full formatting/lint/build checks and record final verification results.
 
 ### 2026-02-05 14:39:01 +07:00
+
 - Milestone: C
 - Summary: Completed Milestone C verification gates after content, taxonomy, writing, and SEO updates.
 - Files changed:
@@ -333,6 +334,7 @@
   - Commit final audit updates and share Milestone C Chat Relay summary.
 
 ### 2026-02-05 14:39:46 +07:00
+
 - Milestone: C
 - Summary: Applied Prettier normalization after Milestone C updates to keep formatting consistent across new/updated page, data, and component files.
 - Files changed:
@@ -358,6 +360,7 @@
   - Commit formatting-only normalization and provide final Chat Relay summary with verification + commits.
 
 ### 2026-02-05 16:40:01 +07:00
+
 - Milestone: D
 - Summary: Added /about page, added /about nav link, and added two client-safe testimonial excerpts (Ruel + Amita) on Home.
 - Files changed:
@@ -374,12 +377,13 @@
   - Migrate case studies and writing to Astro Content Collections with schema validation and dynamic detail pages.
 
 ### 2026-02-05 16:43:56 +07:00
+
 - Milestone: D
 - Summary: Migrated case studies and writing to Astro Content Collections with schema validation, converted loaders to getCollection(), added dynamic detail routes with back links, and removed page-based MDX duplicates.
 - Files changed:
   - src/content/config.ts
-  - src/content/case-studies/*.mdx
-  - src/content/writing/*.mdx
+  - src/content/case-studies/\*.mdx
+  - src/content/writing/\*.mdx
   - src/data/caseStudies.ts
   - src/data/writing.ts
   - src/pages/index.astro
@@ -387,24 +391,25 @@
   - src/pages/case-studies/[slug].astro
   - src/pages/writing/index.astro
   - src/pages/writing/[slug].astro
-  - src/pages/case-studies/*.mdx (deleted)
-  - src/pages/writing/*.mdx (deleted)
+  - src/pages/case-studies/\*.mdx (deleted)
+  - src/pages/writing/\*.mdx (deleted)
 - Commands executed:
   - WriteAllText src/content/config.ts
-  - WriteAllText src/content/case-studies/*.mdx
-  - WriteAllText src/content/writing/*.mdx
+  - WriteAllText src/content/case-studies/\*.mdx
+  - WriteAllText src/content/writing/\*.mdx
   - WriteAllText src/data/caseStudies.ts
   - WriteAllText src/data/writing.ts
   - WriteAllText src/pages/case-studies/[slug].astro
   - WriteAllText src/pages/writing/[slug].astro
-  - cmd /c del /q src/pages/case-studies/*.mdx
-  - cmd /c del /q src/pages/writing/*.mdx
+  - cmd /c del /q src/pages/case-studies/\*.mdx
+  - cmd /c del /q src/pages/writing/\*.mdx
 - Verification run:
   - Deferred to Milestone D/E final verification gate (pnpm install, pnpm format, pnpm lint, pnpm build).
 - Notes/next steps:
   - Add skip link + 404 accessibility polish, then implement sitemap/rss/cloudflare deployment hardening.
 
 ### 2026-02-05 16:45:07 +07:00
+
 - Milestone: D
 - Summary: Added accessibility polish with skip-to-content support, expanded focus-visible coverage for interactive elements, and added a custom 404 page with recovery links.
 - Files changed:
@@ -421,14 +426,15 @@
   - Implement Milestone E deployment hardening (sitemap, rss, cloudflare headers/redirects, deployment docs).
 
 ### 2026-02-05 16:47:33 +07:00
+
 - Milestone: E
 - Summary: Added sitemap + RSS support with SITE_URL-driven site config, enabled optional Cloudflare analytics token handling, and added Cloudflare deployment artifacts/docs.
 - Files changed:
   - stro.config.mjs
   - src/layouts/BaseLayout.astro
   - src/pages/rss.xml.ts
-  - public/_headers
-  - public/_redirects
+  - public/\_headers
+  - public/\_redirects
   - README.md
   - DEPLOYMENT.md
   - package.json
@@ -438,11 +444,57 @@
   - pply_patch astro.config.mjs
   - pply_patch src/layouts/BaseLayout.astro
   - pply_patch add src/pages/rss.xml.ts
-  - WriteAllText public/_headers
-  - WriteAllText public/_redirects
+  - WriteAllText public/\_headers
+  - WriteAllText public/\_redirects
   - WriteAllText README.md
   - WriteAllText DEPLOYMENT.md
 - Verification run:
   - Deferred to Milestone D/E final verification gate (pnpm install, pnpm format, pnpm lint, pnpm build).
 - Notes/next steps:
   - Run full verification and confirm sitemap + rss files in dist output.
+
+### 2026-02-05 16:50:32 +07:00
+
+- Milestone: E
+- Summary: Corrected content-collection folder mismatch (caseStudies key), updated docs path reference, and silenced BaseLayout script-processing hint with explicit is:inline.
+- Files changed:
+  - src/content/caseStudies/_ (renamed from src/content/case-studies/_)
+  - src/layouts/BaseLayout.astro
+  - README.md
+- Commands executed:
+  - Rename-Item src/content/case-studies -> src/content/caseStudies
+  - pply_patch src/layouts/BaseLayout.astro
+  - Set-Content README.md (path replacement)
+- Verification run:
+  - Pending rerun of pnpm lint and pnpm build after collection alignment.
+- Notes/next steps:
+  - Re-run lint/build and confirm case study routes plus sitemap/rss artifacts in dist.
+
+### 2026-02-05 16:51:46 +07:00
+- Milestone: D/E
+- Summary: Completed final verification after Milestone D/E changes; confirmed sitemap and RSS generation in build output.
+- Files changed:
+  - AUDIT_LOG.md
+  - README.md
+  - stro.config.mjs
+  - pnpm-lock.yaml
+  - src/content/* (formatted)
+  - src/data/* (formatted)
+  - src/layouts/BaseLayout.astro
+  - src/pages/* (formatted)
+- Commands executed:
+  - pnpm install (pass)
+  - pnpm format (pass)
+  - pnpm lint (pass: 0 errors, 0 warnings, 0 hints)
+  - pnpm build (pass: 15 pages built)
+  - Test-Path dist/rss.xml (True)
+  - Test-Path dist/sitemap-index.xml (True)
+- Verification run:
+  - pnpm install: pass
+  - pnpm format: pass
+  - pnpm lint: pass
+  - pnpm build: pass
+  - dist/rss.xml: present
+  - dist/sitemap-index.xml: present
+- Notes/next steps:
+  - Commit final formatting/verification updates for Milestone D/E completion.

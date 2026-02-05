@@ -65,7 +65,9 @@ const tagsInUse = CASE_STUDY_TAGS.filter((tag) =>
     };
 
     buttons.forEach((button) => {
-      button.addEventListener("click", () => setFilter(button.dataset.tag ?? "all"));
+      button.addEventListener("click", () =>
+        setFilter(button.dataset.tag ?? "all"),
+      );
     });
   </script>
 </BaseLayout>

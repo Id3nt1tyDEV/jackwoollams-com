@@ -8,11 +8,14 @@ interface Props {
 }
 
 export async function getStaticPaths() {
-  const entries = await getCollection("writing", ({ data }) => data.published !== false);
+  const entries = await getCollection(
+    "writing",
+    ({ data }) => data.published !== false,
+  );
 
   return entries.map((entry) => ({
     params: { slug: entry.slug },
-    props: { entry }
+    props: { entry },
   }));
 }
 
@@ -21,7 +24,7 @@ const { Content } = await render(entry);
 const formattedDate = entry.data.date.toLocaleDateString("en-AU", {
   day: "2-digit",
   month: "short",
-  year: "numeric"
+  year: "numeric",
 });
 ---
 

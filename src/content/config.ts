@@ -13,8 +13,8 @@ const caseStudies = defineCollection({
     stack: z.array(z.string().min(2)).min(1),
     outcomes: z.array(z.string().min(10)).min(1),
     confidentiality: z.string().optional(),
-    published: z.boolean().default(true)
-  })
+    published: z.boolean().default(true),
+  }),
 });
 
 const writing = defineCollection({
@@ -24,11 +24,11 @@ const writing = defineCollection({
     summary: z.string().min(16),
     date: z.coerce.date(),
     tags: z.array(z.string().min(2)).min(1).max(4),
-    published: z.boolean().default(true)
-  })
+    published: z.boolean().default(true),
+  }),
 });
 
 export const collections = {
   caseStudies,
-  writing
+  writing,
 };

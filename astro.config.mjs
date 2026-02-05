@@ -11,7 +11,7 @@ const site = process.env.SITE_URL || "https://jackwoollams.com";
 export default defineConfig({
   site,
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
   },
-  integrations: [mdx(), sitemap()]
+  integrations: [mdx(), sitemap()],
 });
