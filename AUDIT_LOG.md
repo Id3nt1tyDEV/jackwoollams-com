@@ -141,6 +141,7 @@
   - Run `pnpm dev` startup check and `pnpm build` verification.
 
 ### 2026-02-05 14:01 local
+
 - Milestone: A
 - Summary: Fixed MDX frontmatter quoting, verified dev startup, stabilized build script for Windows/Node behavior, and confirmed successful production build.
 - Files changed:
@@ -161,6 +162,7 @@
   - Commit Milestone A changes and share tree + Cloudflare Pages build draft + Chat Relay summary.
 
 ### 2026-02-05 14:15:15 +07:00
+
 - Milestone: B
 - Summary: Refined design tokens with deep navy accent, added active nav state (including Services), upgraded BaseLayout metadata/canonical support, and added robots.txt.
 - Files changed:
@@ -175,3 +177,63 @@
   - WriteAllText public/robots.txt
 - Notes/next steps:
   - Build reusable case study/service components and update pages/frontmatter to dynamic data-driven rendering.
+
+### 2026-02-05 14:18:46 +07:00
+
+- Milestone: B
+- Summary: Added reusable case-study/service/tag components, standardized case-study MDX frontmatter schema, and rebuilt Home/Services/Case Studies pages around frontmatter-driven rendering.
+- Files changed:
+  - src/data/caseStudies.ts
+  - src/components/CaseStudyCard.astro
+  - src/components/ServiceCard.astro
+  - src/components/TagPill.astro
+  - src/styles/global.css
+  - src/pages/index.astro
+  - src/pages/services.astro
+  - src/pages/case-studies/index.astro
+  - src/pages/work/index.astro
+  - src/pages/contact.astro
+  - src/pages/case-studies/contact-centre-kpi-governance-reliability-controls.mdx
+  - src/pages/case-studies/workforce-insights-time-in-motion-staffing-models.mdx
+  - src/pages/case-studies/automation-uplift-reducing-manual-reporting.mdx
+  - src/pages/case-studies/cross-provider-calibration-consistency-scale.mdx
+- Commands executed:
+  - pply_patch (add src/data/caseStudies.ts)
+  - pply_patch (add src/components/TagPill.astro)
+  - pply_patch (add src/components/CaseStudyCard.astro)
+  - pply_patch (add src/components/ServiceCard.astro)
+  - pply_patch (update src/styles/global.css)
+  - WriteAllText for updated pages and MDX files
+- Notes/next steps:
+  - Update repo quality gates (scripts + CI), refresh README deployment docs, then run full verification commands.
+
+### 2026-02-05 14:19:52 +07:00
+
+- Milestone: B
+- Summary: Updated quality gates (format check + astro lint), added GitHub Actions CI workflow, and refreshed README with Cloudflare Pages deployment settings.
+- Files changed:
+  - package.json
+  - .github/workflows/ci.yml
+  - README.md
+- Commands executed:
+  - pply_patch package.json
+  - pply_patch add .github/workflows/ci.yml
+  - WriteAllText README.md
+- Notes/next steps:
+  - Run required verification commands (pnpm install, pnpm format, pnpm lint, pnpm build) and log results.
+
+### 2026-02-05 14:22:53 +07:00
+- Milestone: B
+- Summary: Completed required verification gates and installed @astrojs/check + 	ypescript so lint uses stro check successfully.
+- Files changed:
+  - package.json
+  - pnpm-lock.yaml
+  - AUDIT_LOG.md
+- Commands executed:
+  - pnpm add -D @astrojs/check typescript
+  - pnpm install (pass)
+  - pnpm format (pass)
+  - pnpm lint (pass, 0 errors / 0 warnings)
+  - pnpm build (pass, 9 pages built)
+- Notes/next steps:
+  - Finalize atomic commits for Milestone B and provide tree + review notes.
