@@ -372,3 +372,34 @@
   - Deferred to Milestone D/E final verification gate (pnpm install, pnpm format, pnpm lint, pnpm build).
 - Notes/next steps:
   - Migrate case studies and writing to Astro Content Collections with schema validation and dynamic detail pages.
+
+### 2026-02-05 16:43:56 +07:00
+- Milestone: D
+- Summary: Migrated case studies and writing to Astro Content Collections with schema validation, converted loaders to getCollection(), added dynamic detail routes with back links, and removed page-based MDX duplicates.
+- Files changed:
+  - src/content/config.ts
+  - src/content/case-studies/*.mdx
+  - src/content/writing/*.mdx
+  - src/data/caseStudies.ts
+  - src/data/writing.ts
+  - src/pages/index.astro
+  - src/pages/case-studies/index.astro
+  - src/pages/case-studies/[slug].astro
+  - src/pages/writing/index.astro
+  - src/pages/writing/[slug].astro
+  - src/pages/case-studies/*.mdx (deleted)
+  - src/pages/writing/*.mdx (deleted)
+- Commands executed:
+  - WriteAllText src/content/config.ts
+  - WriteAllText src/content/case-studies/*.mdx
+  - WriteAllText src/content/writing/*.mdx
+  - WriteAllText src/data/caseStudies.ts
+  - WriteAllText src/data/writing.ts
+  - WriteAllText src/pages/case-studies/[slug].astro
+  - WriteAllText src/pages/writing/[slug].astro
+  - cmd /c del /q src/pages/case-studies/*.mdx
+  - cmd /c del /q src/pages/writing/*.mdx
+- Verification run:
+  - Deferred to Milestone D/E final verification gate (pnpm install, pnpm format, pnpm lint, pnpm build).
+- Notes/next steps:
+  - Add skip link + 404 accessibility polish, then implement sitemap/rss/cloudflare deployment hardening.

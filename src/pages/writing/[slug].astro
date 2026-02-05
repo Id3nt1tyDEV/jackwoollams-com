@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import TagPill from "../../components/TagPill.astro";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"writing">;
+}
+
+export async function getStaticPaths() {
+  const entries = await getCollection("writing", ({ data }) => data.published !== false);
+
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry }
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const formattedDate = entry.data.date.toLocaleDateString("en-AU", {
+  day: "2-digit",
+  month: "short",
+  year: "numeric"
+});
+---
+
+<BaseLayout
+  pageTitle={entry.data.title}
+  description={entry.data.summary}
+  ogType="article"
+  canonicalPath={`/writing/${entry.slug}/`}
+>
+  <a class="button button-secondary" href="/writing">Back to Writing</a>
+
+  <article class="section">
+    <p class="eyebrow">{formattedDate}</p>
+    <h1>{entry.data.title}</h1>
+    <p class="lead">{entry.data.summary}</p>
+
+    <div class="tag-pills">
+      {entry.data.tags.map((tag) => <TagPill label={tag} />)}
+    </div>
+
+    <div class="section">
+      <Content />
+    </div>
+  </article>
+
+  <a class="button button-secondary section" href="/writing">Back to Writing</a>
+</BaseLayout>

@@ -5,7 +5,7 @@ import TagPill from "../../components/TagPill.astro";
 import { getCaseStudies } from "../../data/caseStudies";
 import { CASE_STUDY_TAGS, toTagValue } from "../../data/taxonomy";
 
-const caseStudies = getCaseStudies();
+const caseStudies = await getCaseStudies();
 const tagsInUse = CASE_STUDY_TAGS.filter((tag) =>
   caseStudies.some((item) => item.tags.includes(tag)),
 );
@@ -65,9 +65,7 @@ const tagsInUse = CASE_STUDY_TAGS.filter((tag) =>
     };
 
     buttons.forEach((button) => {
-      button.addEventListener("click", () =>
-        setFilter(button.dataset.tag ?? "all"),
-      );
+      button.addEventListener("click", () => setFilter(button.dataset.tag ?? "all"));
     });
   </script>
 </BaseLayout>

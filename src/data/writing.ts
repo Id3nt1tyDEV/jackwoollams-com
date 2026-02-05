@@ -1,37 +1,24 @@
-export interface WritingFrontmatter {
-  title: string;
-  summary: string;
-  date: string;
-  tags: string[];
-}
+import { getCollection, type CollectionEntry } from "astro:content";
 
-export interface WritingItem extends WritingFrontmatter {
+export type WritingFrontmatter = CollectionEntry<"writing">["data"];
+
+export interface WritingItem extends Omit<WritingFrontmatter, "date"> {
+  date: string;
   slug: string;
   href: string;
 }
 
-type WritingModule = {
-  frontmatter: WritingFrontmatter;
-};
+const mapEntry = (entry: CollectionEntry<"writing">): WritingItem => ({
+  ...entry.data,
+  date: entry.data.date.toISOString(),
+  slug: entry.slug,
+  href: `/writing/${entry.slug}/`
+});
 
-const writingModules = import.meta.glob<WritingModule>(
-  "../pages/writing/*.mdx",
-  {
-    eager: true,
-  },
-);
+export const getWritingPosts = async (): Promise<WritingItem[]> => {
+  const entries = await getCollection("writing", ({ data }) => data.published !== false);
 
-const getSlugFromPath = (path: string) =>
-  path.split("/").at(-1)?.replace(".mdx", "") ?? "";
-
-export const getWritingPosts = (): WritingItem[] =>
-  Object.entries(writingModules)
-    .map(([path, module]) => {
-      const slug = getSlugFromPath(path);
-      return {
-        ...module.frontmatter,
-        slug,
-        href: `/writing/${slug}/`,
-      };
-    })
+  return entries
+    .map(mapEntry)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+};

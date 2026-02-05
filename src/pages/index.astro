@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CaseStudyCard from "../components/CaseStudyCard.astro";
 import { getRecentCaseStudies } from "../data/caseStudies";
 
-const featuredCaseStudies = getRecentCaseStudies(3);
+const featuredCaseStudies = await getRecentCaseStudies(3);
 ---
 
 <BaseLayout

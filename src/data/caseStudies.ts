@@ -1,62 +1,29 @@
-import { CASE_STUDY_TAG_SET, type CaseStudyTag } from "./taxonomy";
+import { getCollection, type CollectionEntry } from "astro:content";
 
-export interface CaseStudyFrontmatter {
-  title: string;
-  subtitle: string;
-  summary: string;
+export type CaseStudyFrontmatter = CollectionEntry<"caseStudies">["data"];
+
+export interface CaseStudyItem extends Omit<CaseStudyFrontmatter, "date"> {
   date: string;
-  tags: CaseStudyTag[];
-  role: string;
-  stack: string[];
-  outcomes: string[];
-  confidentiality?: string;
-}
-
-export interface CaseStudyItem extends CaseStudyFrontmatter {
   slug: string;
   href: string;
 }
 
-type CaseStudyModule = {
-  frontmatter: CaseStudyFrontmatter;
-};
+const mapEntry = (entry: CollectionEntry<"caseStudies">): CaseStudyItem => ({
+  ...entry.data,
+  date: entry.data.date.toISOString(),
+  slug: entry.slug,
+  href: `/case-studies/${entry.slug}/`
+});
 
-const caseStudyModules = import.meta.glob<CaseStudyModule>(
-  "../pages/case-studies/*.mdx",
-  {
-    eager: true,
-  },
-);
+export const getCaseStudies = async (): Promise<CaseStudyItem[]> => {
+  const entries = await getCollection("caseStudies", ({ data }) => data.published !== false);
 
-const getSlugFromPath = (path: string) =>
-  path.split("/").at(-1)?.replace(".mdx", "") ?? "";
-
-const validateTags = (slug: string, tags: string[]): CaseStudyTag[] => {
-  if (tags.length < 2 || tags.length > 4) {
-    throw new Error(`Case study '${slug}' must include between 2 and 4 tags.`);
-  }
-
-  tags.forEach((tag) => {
-    if (!CASE_STUDY_TAG_SET.has(tag)) {
-      throw new Error(`Case study '${slug}' uses unsupported tag '${tag}'.`);
-    }
-  });
-
-  return tags as CaseStudyTag[];
-};
-
-export const getCaseStudies = (): CaseStudyItem[] =>
-  Object.entries(caseStudyModules)
-    .map(([path, module]) => {
-      const slug = getSlugFromPath(path);
-      return {
-        ...module.frontmatter,
-        tags: validateTags(slug, module.frontmatter.tags),
-        slug,
-        href: `/case-studies/${slug}/`,
-      };
-    })
+  return entries
+    .map(mapEntry)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+};
 
-export const getRecentCaseStudies = (count = 3): CaseStudyItem[] =>
-  getCaseStudies().slice(0, count);
+export const getRecentCaseStudies = async (count = 3): Promise<CaseStudyItem[]> => {
+  const caseStudies = await getCaseStudies();
+  return caseStudies.slice(0, count);
+};
