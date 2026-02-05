@@ -1,42 +1,74 @@
-﻿---
+---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CaseStudyCard from "../components/CaseStudyCard.astro";
+import { getRecentCaseStudies } from "../data/caseStudies";
 
-const caseStudies = [
-  {
-    href: "/case-studies/contact-centre-kpi-governance-reliability-controls",
-    title: "Contact Centre KPI Governance & Reliability Controls",
-  },
-  {
-    href: "/case-studies/workforce-insights-time-in-motion-staffing-models",
-    title: "Workforce Insights: Time-in-Motion and Staffing Models",
-  },
-  {
-    href: "/case-studies/automation-uplift-reducing-manual-reporting",
-    title: "Automation Uplift: Reducing Manual Reporting by 30+ Hours/Week",
-  },
-  {
-    href: "/case-studies/cross-provider-calibration-consistency-scale",
-    title: "Cross-Provider Calibration: Improving Consistency at Scale",
-  },
-];
+const featuredCaseStudies = getRecentCaseStudies(3);
 ---
 
 <BaseLayout
-  title="Jack Woollams | Analytics Consultant"
-  description="AI-enabled analytics and contact centre reporting consulting by Jack Woollams."
+  pageTitle="Analytics Consulting"
+  description="Decision-grade analytics consulting for AI-related work, contact centres, and reporting programs."
 >
   <section>
     <h1>
-      Rapid ramp-up, durable analytics systems, and reporting that teams trust.
+      I build decision-grade analytics systems fast — then make them
+      sustainable.
     </h1>
     <p class="lead">
-      I help teams stabilize performance data quickly, then build practical
-      analytics foundations that keep working long after handover.
+      I support workforce and contact centre analytics programs with KPI
+      governance, reporting automation, and executive-ready insights that stand
+      up under scrutiny.
     </p>
+    <div class="button-group">
+      <a class="button" href="/case-studies">View case studies</a>
+      <a class="button button-secondary" href="mailto:jackwoollams1@gmail.com"
+        >Email me</a
+      >
+    </div>
+    <div class="proof-bar">
+      <ul class="proof-list">
+        <li>
+          Delivered acting EL1-level leadership coverage for analytics and
+          reporting programs.
+        </li>
+        <li>
+          Prepared SES-facing briefing packs with clear assumptions and
+          defensible metrics.
+        </li>
+        <li>
+          Built KPI governance guardrails to improve consistency and reduce
+          decision risk.
+        </li>
+        <li>
+          Implemented automation and validation patterns that reduce BAU
+          reporting overhead.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Featured case studies</h2>
+    <div class="grid cards">
+      {featuredCaseStudies.map((caseStudy) => <CaseStudyCard {...caseStudy} />)}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Services</h2>
     <p class="lead">
-      My focus spans AI-adjacent workflows, contact centre analytics, and
-      reporting programs that can scale without losing credibility.
+      Flexible delivery across advisory, build, and enablement support for
+      analytics teams and operational leaders.
     </p>
+    <ul>
+      <li>KPI governance design and reliability controls.</li>
+      <li>Contact centre performance and workforce insight programs.</li>
+      <li>Reporting automation and executive dashboard design.</li>
+    </ul>
+    <div class="button-group">
+      <a class="button button-secondary" href="/services">Explore services</a>
+    </div>
   </section>
 
   <section class="section">
@@ -61,24 +93,6 @@ const caseStudies = [
   </section>
 
   <section class="section">
-    <h2>Selected work</h2>
-    <div class="grid cards">
-      {
-        caseStudies.map((item) => (
-          <article class="card">
-            <h3>{item.title}</h3>
-            <p class="muted">
-              Stub case study. Detailed outcomes, constraints, and approach to
-              be added.
-            </p>
-            <a href={item.href}>Read case study</a>
-          </article>
-        ))
-      }
-    </div>
-  </section>
-
-  <section class="section">
     <h2>Focus areas now</h2>
     <p class="muted">
       Governance-first KPI design, cross-provider calibration, and reporting
@@ -87,7 +101,7 @@ const caseStudies = [
   </section>
 
   <section class="section">
-    <h2>Links</h2>
+    <h2>Professional links</h2>
     <p>
       <a
         href="https://www.linkedin.com/in/jackwoollams/"

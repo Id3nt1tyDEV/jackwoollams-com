@@ -1,0 +1,29 @@
+---
+interface Props {
+  label: string;
+  value?: string;
+  asButton?: boolean;
+  active?: boolean;
+}
+
+const {
+  label,
+  value = label.toLowerCase(),
+  asButton = false,
+  active = false,
+} = Astro.props;
+---
+
+{
+  asButton ? (
+    <button
+      type="button"
+      class={`tag-pill${active ? " is-active" : ""}`}
+      data-tag={value}
+    >
+      {label}
+    </button>
+  ) : (
+    <span class="tag-pill">{label}</span>
+  )
+}

@@ -199,6 +199,53 @@ li {
   gap: var(--space-xs);
 }
 
+.tag-pill {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--muted);
+  font-size: 0.82rem;
+  padding: 0.2rem 0.6rem;
+}
+
+button.tag-pill {
+  cursor: pointer;
+}
+
+.tag-pill.is-active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.filter-row {
+  margin-top: var(--space-lg);
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.meta-row {
+  margin-top: var(--space-md);
+}
+
+.meta-row p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+.outcomes-list {
+  margin-top: var(--space-md);
+}
+
+[data-case-study].is-hidden {
+  display: none;
+}
+
 .muted {
   color: var(--muted);
 }

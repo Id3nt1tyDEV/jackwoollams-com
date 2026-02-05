@@ -1,0 +1,64 @@
+---
+import TagPill from "./TagPill.astro";
+
+interface Props {
+  href: string;
+  title: string;
+  subtitle: string;
+  summary: string;
+  date: string;
+  tags: string[];
+  role: string;
+  stack: string[];
+  outcomes: string[];
+  confidentiality?: string;
+}
+
+const {
+  href,
+  title,
+  subtitle,
+  summary,
+  date,
+  tags,
+  role,
+  stack,
+  outcomes,
+  confidentiality,
+} = Astro.props;
+const formattedDate = new Date(date).toLocaleDateString("en-AU", {
+  day: "2-digit",
+  month: "short",
+  year: "numeric",
+});
+---
+
+<article class="card">
+  <p class="eyebrow">{formattedDate}</p>
+  <h3>
+    <a href={href}>{title}</a>
+  </h3>
+  <p class="muted">{subtitle}</p>
+  <p>{summary}</p>
+
+  <div class="meta-row">
+    <p><strong>Role:</strong> {role}</p>
+    <p><strong>Stack:</strong> {stack.join(", ")}</p>
+  </div>
+
+  <div class="tag-pills">
+    {tags.map((tag) => <TagPill label={tag} />)}
+  </div>
+
+  <ul class="outcomes-list">
+    {outcomes.slice(0, 2).map((outcome) => <li>{outcome}</li>)}
+  </ul>
+
+  {
+    confidentiality && (
+      <p class="muted">
+        <small>{confidentiality}</small>
+      </p>
+    )
+  }
+</article>

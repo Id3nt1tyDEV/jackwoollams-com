@@ -1,15 +1,15 @@
-﻿---
+---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-  title="Work | Jack Woollams"
-  description="Consulting services in analytics, contact centre insight, and reporting."
+  pageTitle="Work"
+  description="Consulting services in analytics, contact centre insight, and reporting systems."
 >
   <h1>Work</h1>
   <p class="lead">
-    I deliver analytics consulting engagements that move from ambiguity to
-    operational clarity quickly.
+    I deliver analytics engagements that move from ambiguity to operational
+    clarity quickly.
   </p>
 
   <section class="section">
@@ -22,7 +22,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     </ul>
   </section>
 
-  <p class="section">
-    See case studies: <a href="/case-studies">/case-studies</a>
-  </p>
+  <div class="button-group section">
+    <a class="button" href="/case-studies">Explore case studies</a>
+    <a class="button button-secondary" href="/services">View services</a>
+  </div>
 </BaseLayout>

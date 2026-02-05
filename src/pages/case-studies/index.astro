@@ -1,43 +1,71 @@
-﻿---
+---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import CaseStudyCard from "../../components/CaseStudyCard.astro";
+import TagPill from "../../components/TagPill.astro";
+import { getCaseStudies } from "../../data/caseStudies";
 
-const items = [
-  {
-    href: "/case-studies/contact-centre-kpi-governance-reliability-controls",
-    title: "Contact Centre KPI Governance & Reliability Controls",
-  },
-  {
-    href: "/case-studies/workforce-insights-time-in-motion-staffing-models",
-    title: "Workforce Insights: Time-in-Motion and Staffing Models",
-  },
-  {
-    href: "/case-studies/automation-uplift-reducing-manual-reporting",
-    title: "Automation Uplift: Reducing Manual Reporting by 30+ Hours/Week",
-  },
-  {
-    href: "/case-studies/cross-provider-calibration-consistency-scale",
-    title: "Cross-Provider Calibration: Improving Consistency at Scale",
-  },
-];
+const caseStudies = getCaseStudies();
+const tags = [...new Set(caseStudies.flatMap((item) => item.tags))].sort(
+  (a, b) => a.localeCompare(b),
+);
 ---
 
 <BaseLayout
-  title="Case Studies | Jack Woollams"
-  description="Selected consulting case studies and delivery notes."
+  pageTitle="Case Studies"
+  description="Outcome-focused examples from analytics consulting delivery."
 >
   <h1>Case Studies</h1>
   <p class="lead">
-    Initial stubs are live. Each page includes TODO notes for full publication.
+    Filter by topic to scan outcomes, approach, and delivery context.
   </p>
-  <div class="grid cards section">
+
+  <div
+    class="tag-pills filter-row"
+    role="toolbar"
+    aria-label="Filter case studies by tag"
+  >
+    <TagPill label="All" value="all" asButton active />
     {
-      items.map((item) => (
-        <article class="card">
-          <h2>{item.title}</h2>
-          <p class="muted">Placeholder summary pending full write-up.</p>
-          <a href={item.href}>Open stub</a>
-        </article>
+      tags.map((tag) => (
+        <TagPill label={tag} value={tag.toLowerCase()} asButton />
       ))
     }
   </div>
+
+  <div id="case-study-grid" class="grid cards section">
+    {
+      caseStudies.map((item) => (
+        <div
+          data-case-study
+          data-tags={item.tags.map((tag) => tag.toLowerCase()).join("|")}
+        >
+          <CaseStudyCard {...item} />
+        </div>
+      ))
+    }
+  </div>
+
+  <script is:inline>
+    const buttons = Array.from(document.querySelectorAll("button[data-tag]"));
+    const cards = Array.from(document.querySelectorAll("[data-case-study]"));
+
+    const setFilter = (tag) => {
+      buttons.forEach((button) => {
+        button.classList.toggle("is-active", button.dataset.tag === tag);
+      });
+
+      cards.forEach((card) => {
+        const rawTags = card.getAttribute("data-tags") ?? "";
+        const hasTag = rawTags.split("|").includes(tag);
+        const shouldShow = tag === "all" || hasTag;
+        card.classList.toggle("is-hidden", !shouldShow);
+      });
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () =>
+        setFilter(button.dataset.tag ?? "all"),
+      );
+    });
+  </script>
 </BaseLayout>

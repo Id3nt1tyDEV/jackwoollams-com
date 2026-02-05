@@ -1,0 +1,98 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+
+const services = [
+  {
+    title: "KPI Governance and Measurement Reliability",
+    summary:
+      "Establish robust definitions, ownership, and validation controls so leadership can trust every reported metric.",
+    bullets: [
+      "KPI dictionary and governance model",
+      "Data quality controls and exception pathways",
+      "Operational and executive reporting alignment",
+    ],
+  },
+  {
+    title: "Contact Centre and Workforce Analytics",
+    summary:
+      "Translate operational data into decision support for staffing, performance, and service-level outcomes.",
+    bullets: [
+      "Time-in-motion and throughput diagnostics",
+      "Capacity and performance scenario modelling",
+      "Provider and team calibration support",
+    ],
+  },
+  {
+    title: "Reporting Automation and BAU Uplift",
+    summary:
+      "Reduce manual report cycles while preserving auditability and confidence in final outputs.",
+    bullets: [
+      "Pipeline and template automation",
+      "Validation checkpoints before publication",
+      "Handover documentation for sustainable run-state",
+    ],
+  },
+  {
+    title: "Executive Insight and Briefing Support",
+    summary:
+      "Package complex analytics into concise, decision-ready narratives for senior stakeholders.",
+    bullets: [
+      "Issue framing and options analysis",
+      "Risk-aware metrics interpretation",
+      "Briefing-ready visual and written outputs",
+    ],
+  },
+];
+---
+
+<BaseLayout
+  pageTitle="Services"
+  description="Analytics consulting services spanning KPI governance, contact centre performance, and reporting automation."
+>
+  <h1>Services</h1>
+  <p class="lead">
+    I work with teams that need fast stabilization now and durable analytics
+    capability over time.
+  </p>
+
+  <section class="section">
+    <h2>Offerings</h2>
+    <div class="grid cards">
+      {services.map((service) => <ServiceCard {...service} />)}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>How engagements work</h2>
+    <ul>
+      <li>
+        Rapid discovery to surface reliability risks, delivery constraints, and
+        decision priorities.
+      </li>
+      <li>
+        Focused implementation sprint with clear milestones and transparent
+        tradeoffs.
+      </li>
+      <li>
+        Structured handover with governance artefacts and run-state
+        documentation.
+      </li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>What you get</h2>
+    <ul>
+      <li>Decision-grade reporting outputs leaders can rely on.</li>
+      <li>Repeatable processes for ongoing quality and consistency.</li>
+      <li>Practical uplift in analyst productivity and delivery confidence.</li>
+    </ul>
+    <div class="button-group">
+      <a class="button" href="/case-studies">See delivery examples</a>
+      <a class="button button-secondary" href="mailto:jackwoollams1@gmail.com"
+        >Discuss your context</a
+      >
+    </div>
+  </section>
+</BaseLayout>
