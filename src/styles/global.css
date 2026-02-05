@@ -40,9 +40,28 @@ a:hover {
 }
 
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 2px;
+}
+
+.skip-link {
+  background: var(--accent);
+  color: #ffffff;
+  left: 1rem;
+  padding: 0.45rem 0.8rem;
+  position: absolute;
+  text-decoration: none;
+  top: -100px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 1rem;
 }
 
 .container {

@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  pageTitle="Page Not Found"
+  description="The page you requested could not be found."
+  canonicalPath="/404/"
+>
+  <h1>Page not found</h1>
+  <p class="lead">
+    The link may be outdated or the page may have moved.
+  </p>
+  <p>Try one of the key pages below:</p>
+  <div class="button-group">
+    <a class="button" href="/">Home</a>
+    <a class="button button-secondary" href="/case-studies">Case Studies</a>
+    <a class="button button-secondary" href="/writing">Writing</a>
+    <a class="button button-secondary" href="/about">About</a>
+  </div>
+</BaseLayout>

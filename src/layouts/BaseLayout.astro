@@ -51,8 +51,9 @@ const canonicalUrl = canonicalPath.startsWith("http")
     <title>{fullTitle}</title>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <Nav />
-    <main class="container">
+    <main id="main-content" class="container">
       <slot />
     </main>
     <Footer />

@@ -403,3 +403,19 @@
   - Deferred to Milestone D/E final verification gate (pnpm install, pnpm format, pnpm lint, pnpm build).
 - Notes/next steps:
   - Add skip link + 404 accessibility polish, then implement sitemap/rss/cloudflare deployment hardening.
+
+### 2026-02-05 16:45:07 +07:00
+- Milestone: D
+- Summary: Added accessibility polish with skip-to-content support, expanded focus-visible coverage for interactive elements, and added a custom 404 page with recovery links.
+- Files changed:
+  - src/layouts/BaseLayout.astro
+  - src/styles/global.css
+  - src/pages/404.astro
+- Commands executed:
+  - pply_patch src/styles/global.css
+  - pply_patch src/layouts/BaseLayout.astro
+  - pply_patch add src/pages/404.astro
+- Verification run:
+  - Deferred to Milestone D/E final verification gate (pnpm install, pnpm format, pnpm lint, pnpm build).
+- Notes/next steps:
+  - Implement Milestone E deployment hardening (sitemap, rss, cloudflare headers/redirects, deployment docs).
