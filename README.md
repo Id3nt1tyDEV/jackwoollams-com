@@ -28,6 +28,7 @@ All commands run from repo root.
 - Install command: `pnpm install`
 - Build command: `pnpm build`
 - Build output directory: `dist`
+- Deploy command: _(leave empty / disabled)_
 - Node version: `20`
 
 ## Environment variables
@@ -52,3 +53,4 @@ All commands run from repo root.
 - Keep `AUDIT_LOG.md` append-only.
 - Follow `AGENT.md` for workflow and commit conventions.
 - See `DEPLOYMENT.md` for deployment and release checklist.
+- See `docs/cloudflare-pages-build-auth-10000.md` for auth error troubleshooting.

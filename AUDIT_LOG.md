@@ -471,6 +471,7 @@
   - Re-run lint/build and confirm case study routes plus sitemap/rss artifacts in dist.
 
 ### 2026-02-05 16:51:46 +07:00
+
 - Milestone: D/E
 - Summary: Completed final verification after Milestone D/E changes; confirmed sitemap and RSS generation in build output.
 - Files changed:
@@ -478,10 +479,10 @@
   - README.md
   - stro.config.mjs
   - pnpm-lock.yaml
-  - src/content/* (formatted)
-  - src/data/* (formatted)
+  - src/content/\* (formatted)
+  - src/data/\* (formatted)
   - src/layouts/BaseLayout.astro
-  - src/pages/* (formatted)
+  - src/pages/\* (formatted)
 - Commands executed:
   - pnpm install (pass)
   - pnpm format (pass)
@@ -498,3 +499,52 @@
   - dist/sitemap-index.xml: present
 - Notes/next steps:
   - Commit final formatting/verification updates for Milestone D/E completion.
+
+### 2026-02-15 15:24:54 +07:00
+
+- Milestone: E
+- Summary: Added dedicated Cloudflare Pages auth error 10000 troubleshooting guide and updated deployment docs to enforce Pages-native deploy flow (no Wrangler deploy command in Pages builds).
+- Files changed:
+  - docs/cloudflare-pages-build-auth-10000.md
+  - DEPLOYMENT.md
+  - README.md
+- Commands executed:
+  - pply_patch add docs/cloudflare-pages-build-auth-10000.md
+  - pply_patch update DEPLOYMENT.md
+  - pply_patch update README.md
+- Verification run:
+  - Pending verification after any additional adjustments.
+- Notes/next steps:
+  - Re-run repository search to confirm no in-repo Wrangler deploy invocation paths, then run formatting/lint/build verification.
+
+### 2026-02-15 15:25:27 +07:00
+
+- Milestone: E
+- Summary: Corrected numbering in deployment checklist for clarity after adding the no-Wrangler deploy requirement.
+- Files changed:
+  - DEPLOYMENT.md
+- Commands executed:
+  - pply_patch update DEPLOYMENT.md
+- Verification run:
+  - Pending final verification run.
+- Notes/next steps:
+  - Run pnpm format, pnpm lint, and pnpm build; record results in audit log.
+
+### 2026-02-15 15:26:18 +07:00
+- Milestone: E
+- Summary: Completed troubleshooting verification for Cloudflare Pages auth error fix path and validated build pipeline with no Wrangler deploy usage in repo build scripts.
+- Files changed:
+  - AUDIT_LOG.md
+- Commands executed:
+  - g -n "wrangler|pages deploy|pages publish|wrangler deploy|CLOUDFLARE_API_TOKEN|CF_API_TOKEN" -S .
+  - pnpm install (pass)
+  - pnpm format (pass)
+  - pnpm lint (pass)
+  - pnpm build (pass)
+- Verification run:
+  - pnpm install: pass
+  - pnpm format: pass
+  - pnpm lint: pass (0 errors, 0 warnings, 0 hints)
+  - pnpm build: pass
+- Notes/next steps:
+  - Commit docs and audit updates for the Option A remediation.

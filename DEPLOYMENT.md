@@ -6,6 +6,7 @@
 - Install command: `pnpm install`
 - Build command: `pnpm build`
 - Build output directory: `dist`
+- Deploy command: _(leave empty / disabled)_
 - Node version: `20`
 
 ## Environment Variables
@@ -24,6 +25,11 @@
 ## Deployment Checklist
 
 1. Confirm `SITE_URL` is set correctly.
-2. Run `pnpm install`, `pnpm format`, `pnpm lint`, and `pnpm build`.
-3. Confirm `dist/sitemap-index.xml` and `dist/rss.xml` exist.
-4. Deploy to Cloudflare Pages.
+2. Confirm Pages deploy command is empty (do not run `wrangler deploy` in Pages builds).
+3. Run `pnpm install`, `pnpm format`, `pnpm lint`, and `pnpm build`.
+4. Confirm `dist/sitemap-index.xml` and `dist/rss.xml` exist.
+5. Deploy to Cloudflare Pages.
+
+## Troubleshooting
+
+- `docs/cloudflare-pages-build-auth-10000.md` contains the auth error 10000 decision path.
